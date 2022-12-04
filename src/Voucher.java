@@ -16,10 +16,10 @@ public class Voucher {
     }
 
     @Override
-    public String toString(){
-        return "Имя путешественника: " + nameOfTheTraveler +
-                ", дата начла путешествия: " + date +
-                ", количество дней: " + dayCount+
-                ", номер паспорта: " + passportNumber;
-    }
+    public String toString() {
+		return "Имя путешественника: " + nameOfTheTraveler +
+					   ", номер паспорта: " + passportNumber +
+					   ", дата начала путешествия: " + date +
+					   ", количество дней: " + dayCount;
+	}
 }
