@@ -30,7 +30,6 @@ public class Main {
     }
     public static int getS() {
         
-        
         return new Scanner(System.in).nextInt();
     }
 }
