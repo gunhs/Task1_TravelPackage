@@ -22,6 +22,7 @@ public class Main {
                 if (getS() == 0) {
                     ServiceFactory.processing();
                 }
+                
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
             }
