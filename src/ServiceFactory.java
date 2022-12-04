@@ -85,4 +85,7 @@ public class ServiceFactory {
 	private static void getTourCountVoucher() {
 		travelPackages.getTours();
 	}
+//	public static int getS() {
+//		return s = new Scanner(System.in).nextInt();
+//	}
 }

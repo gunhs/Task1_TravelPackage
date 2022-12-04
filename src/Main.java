@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
+
         System.out.println("Программа для управления путешествиями");
         while (true) {
             System.out.println("""
@@ -28,6 +30,7 @@ public class Main {
         }
     }
     public static int getS() {
+        
         return new Scanner(System.in).nextInt();
     }
 }
