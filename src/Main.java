@@ -8,21 +8,26 @@ public class Main {
             System.out.println("""
                     ----------------------------------------------------
                     Введите номер команды:
-                    0. Выход из программы
                     1. Добавить тур
                     2. Купить путёвку
                     3. Отменить покупку
                     4. Показать информацию о путёвках по туру
                     5. Показать количество оставшихся путёвок по туру
-                    6. Показать все туры с количеством путёвок""");
+                    6. Показать все туры с количеством путёвок
+                    0. Выход из команды""");
+            
             try {
-                int s = new Scanner(System.in).nextInt();
-                if (s == 0) {
-                    break;
-                } else ServiceFactory.processing(s);
+                //int a = getS();
+                if (getS() == 0) {
+                    ServiceFactory.processing();
+                }
+                
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
             }
         }
+    }
+    public static int getS() {
+        return new Scanner(System.in).nextInt();
     }
 }
