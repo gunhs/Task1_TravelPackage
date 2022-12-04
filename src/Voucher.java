@@ -9,7 +9,6 @@ public class Voucher {
 		this.date = date;
 		this.dayCount = dayCount;
 		this.passportNumber = passportNumber;
-		
 	}
 	
 	public String getNameOfTheTraveler() {

@@ -6,7 +6,6 @@ public class Tour {
 	private double price;
 	private int count; // количество путёвок
 	
-	
 	public Tour(String name, double price, int count) {
 		this.count = count;
 		this.name = name;

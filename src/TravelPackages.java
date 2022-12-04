@@ -52,7 +52,6 @@ public class TravelPackages implements SaleOfVouchers {
 
     @Override
     public void getInformation(String name) {
-        
         if (checkTour(name)) return;
         System.out.println("Количество мест в туре " + name +
                 ": " + vouchers.get(name).getCount());
