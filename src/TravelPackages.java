@@ -3,6 +3,7 @@ import java.util.Map;
 
 public class TravelPackages implements SaleOfVouchers {
     HashMap<String, Tour> vouchers = new HashMap<>();
+    
 
     @Override
     public void addTour(String name, Tour tour) {

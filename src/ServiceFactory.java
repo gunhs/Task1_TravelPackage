@@ -5,6 +5,7 @@ public class ServiceFactory {
 	
 	public static void processing() {
 		int command = Main.getS();
+		
 		switch (command) {
 			case 1 -> addTour();
 			case 2 -> bayTour();
