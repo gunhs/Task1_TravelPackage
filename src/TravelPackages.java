@@ -11,7 +11,7 @@ public class TravelPackages implements SaleOfVouchers {
             return;
         }
         vouchers.put(name, tour);
-        System.out.println("Добавлен тур "+ name);
+        System.out.println("Добавлен тур: " + name);
     }
 
     @Override
@@ -32,6 +32,7 @@ public class TravelPackages implements SaleOfVouchers {
         if (checkTour(name)) return;
         vouchers.get(name).addTraveler(voucher);
         vouchers.get(name).setCount(vouchers.get(name).getCount() - 1);
+        System.out.println("Покупка \"" + name + "\" прошла успешно");
     }
 
     @Override
@@ -46,6 +47,7 @@ public class TravelPackages implements SaleOfVouchers {
             }
         }
         vouchers.get(name).setCount(vouchers.get(name).getCount() + 1);
+        System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
     }
 
     @Override
@@ -62,7 +64,7 @@ public class TravelPackages implements SaleOfVouchers {
         }
         for (Map.Entry<String, Tour> entry : vouchers.entrySet()) {
             System.out.println(entry.getValue().getName() +
-                    ": количество путёвок: " + entry.getValue().getCount());
+                    ": количество путёвок - " + entry.getValue().getCount());
         }
     }
 
