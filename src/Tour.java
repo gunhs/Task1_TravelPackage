@@ -13,7 +13,7 @@ public class Tour {
     }
 
     public void addTraveler(Voucher voucher) {
-        if (vouchers.size() <= count) {
+        if (vouchers.size() == count) {
             System.out.println("Невозможно приобрести путёвку. Мест нет");
             return;
         } else {
