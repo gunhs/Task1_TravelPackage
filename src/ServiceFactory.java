@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class ServiceFactory {
 	static TravelPackages travelPackages = new TravelPackages();
 	
-	public static void processing() {
-		int command = Main.getS();
+	public static void processing( int command) {
 		switch (command) {
 			case 1 -> addTour();
 			case 2 -> bayTour();
@@ -33,10 +32,6 @@ public class ServiceFactory {
 		travelPackages.addTour(components[0].trim(), new Tour(components[0].trim(),
 				Double.parseDouble(components[1]),
 				Integer.parseInt(components[2].trim())));
-		
-		if (Main.getS() == 0) {
-			ServiceFactory.processing();
-		}
 	}
 	
 	private static void bayTour() {

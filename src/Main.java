@@ -20,12 +20,11 @@ public class Main {
                     0. Выход из программы""");
             
             try {
-                //int a = getS();
                 int a = new Scanner(System.in).nextInt();
                 if (a == 0) {
                     break;
                 }
-                ServiceFactory.processing();
+                ServiceFactory.processing(a);
                 
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
