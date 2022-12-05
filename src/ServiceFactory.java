@@ -21,11 +21,13 @@ public class ServiceFactory {
 		System.out.println("Введите данные о туре через запятую.\n" +
 								   "Например: Бали, 150000, 5");
 		String input = new Scanner(System.in).nextLine().trim();
+		if (input.equals(String.valueOf(7))) return;
 		while (!input.matches("[А-я\\s]+, \\d+, \\d+")) {
 			System.out.println("""
 					Ошибка. Введите корректно!
 					Например: Бали, 150000, 5""");
 			input = new Scanner(System.in).nextLine().trim();
+			if (input.equals(String.valueOf(7))) return;
 		}
 		String[] components = input.split(",");
 		travelPackages.addTour(components[0].trim(), new Tour(components[0].trim(),
@@ -43,11 +45,13 @@ public class ServiceFactory {
 				Название, дата начала, количество дней, ФИО, номер паспорта.
 				Например: Бали, 23.11.2021, 10, Горохов Иван Дмитриевич, 8977090809""");
 		String input2 = new Scanner(System.in).nextLine().trim();
+		if (input2.equals(String.valueOf(7))) return;
 		while (!input2.matches("[А-я\\s]+, [\\d.]+, \\d+, [А-я\\s]+, \\d{10}")) {
 			System.out.println("""
 					Ошибка. Введите корректно!
 					Например: Бали, 23.11.2021, 10, Горохов Иван Дмитриевич, 8977090809""");
 			input2 = new Scanner(System.in).nextLine().trim();
+			if (input2.equals(String.valueOf(7))) return;
 		}
 		String[] components2 = input2.split(",");
 		travelPackages.bayTour(components2[0].trim(), new Voucher(components2[1].trim(),
@@ -60,11 +64,13 @@ public class ServiceFactory {
 		System.out.println("Введите название тура и ФИО путешественника.\n" +
 								   "Например: Бали, Горохов Иван Дмитриевич");
 		String input3 = new Scanner(System.in).nextLine().trim();
+		if (input3.equals(String.valueOf(7))) return;
 		while (!input3.matches("[А-я\\s]+, [А-я\\s]+")) {
 			System.out.println("""
 					Ошибка. Введите корректно!
 					Например: Бали, Горохов Иван Дмитриевич""");
 			input3 = new Scanner(System.in).nextLine().trim();
+			if (input3.equals(String.valueOf(7))) return;
 		}
 		String[] components3 = input3.split(",");
 		travelPackages.cancelTour(components3[0].trim(), components3[1].trim());
@@ -85,7 +91,4 @@ public class ServiceFactory {
 	private static void getTourCountVoucher() {
 		travelPackages.getTours();
 	}
-//	public static int getS() {
-//		return s = new Scanner(System.in).nextInt();
-//	}
 }

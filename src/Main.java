@@ -16,13 +16,16 @@ public class Main {
                     4. Показать информацию о путёвках по туру
                     5. Показать количество оставшихся путёвок по туру
                     6. Показать все туры с количеством путёвок
-                    0. Выход из команды""");
+                    7. Возврат в главное меню
+                    0. Выход из программы""");
             
             try {
                 //int a = getS();
-                if (getS() == 0) {
-                    ServiceFactory.processing();
+                int a = new Scanner(System.in).nextInt();
+                if (a == 0) {
+                    break;
                 }
+                ServiceFactory.processing();
                 
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
