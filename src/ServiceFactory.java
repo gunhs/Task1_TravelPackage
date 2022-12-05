@@ -11,7 +11,6 @@ public class ServiceFactory {
 			case 4 -> getVoucherByTour();
 			case 5 -> getVoucherCount();
 			case 6 -> getTourCountVoucher();
-			case 0 -> Main.getS();
 			default -> System.out.println("Неверный номер команды. Введите команду от 0 до 6");
 		}
 	}
