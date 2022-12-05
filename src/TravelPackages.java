@@ -32,7 +32,7 @@ public class TravelPackages implements SaleOfVouchers {
         if (checkTour(name)) return;
         for (Voucher v : vouchers.get(name).getVouchers()) {
             if (v.getNameOfTheTraveler().equals(voucher.getNameOfTheTraveler())
-            && v.getPassportNumber().equals(voucher.getPassportNumber())) {
+                    && v.getPassportNumber().equals(voucher.getPassportNumber())) {
                 System.out.println("Данный путешественник уже покупал тур");
                 return;
             } else {
@@ -71,7 +71,7 @@ public class TravelPackages implements SaleOfVouchers {
         }
         for (Map.Entry<String, Tour> entry : vouchers.entrySet()) {
             System.out.println(entry.getValue().getName() +
-                    ": количество путёвок - " + entry.getValue().getCount());
+                    ": количество путёвок - " + (entry.getValue().getCount() - entry.getValue().getVouchers().size()));
         }
     }
 
