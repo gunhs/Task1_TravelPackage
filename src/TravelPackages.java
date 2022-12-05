@@ -31,7 +31,9 @@ public class TravelPackages implements SaleOfVouchers {
     public void bayTour(String name, Voucher voucher) {
         if (checkTour(name)) return;
         vouchers.get(name).addTraveler(voucher);
-        vouchers.get(name).setCount(vouchers.get(name).getCount() - 1);
+//        System.out.println("Количчество путёвок до покупки" + vouchers.get(name).getCount());
+//        vouchers.get(name).setCount(vouchers.get(name).getCount() - 1);
+//        System.out.println("Количество путёвок после покупки" + vouchers.get(name).getCount());
     }
 
     @Override
@@ -45,7 +47,7 @@ public class TravelPackages implements SaleOfVouchers {
                         " Проверьте правильность вводимых данных");
             }
         }
-        vouchers.get(name).setCount(vouchers.get(name).getCount() + 1);
+//        vouchers.get(name).setCount(vouchers.get(name).getCount() + 1);
         System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
     }
 
@@ -53,7 +55,7 @@ public class TravelPackages implements SaleOfVouchers {
     public void getInformation(String name) {
         if (checkTour(name)) return;
         System.out.println("Количество мест в туре " + name +
-                ": " + vouchers.get(name).getCount());
+                ": " + (vouchers.get(name).getCount()-vouchers.get(name).getVouchers().size()));
     }
 
     public void getTours() {
