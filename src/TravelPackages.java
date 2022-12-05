@@ -35,9 +35,6 @@ public class TravelPackages implements SaleOfVouchers {
                     && v.getPassportNumber().equals(voucher.getPassportNumber())) {
                 System.out.println("Данный путешественник уже покупал тур");
                 return;
-            } else {
-                System.out.println("Путешественник ФИО не покупал данный тур." +
-                        " Проверьте правильность вводимых данных");
             }
         }
         vouchers.get(name).addTraveler(voucher);

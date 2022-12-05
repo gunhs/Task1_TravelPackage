@@ -1,3 +1,6 @@
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class ServiceFactory {
@@ -36,10 +39,14 @@ public class ServiceFactory {
     }
 
     private static void bayTour() {
+        try {
+
+
         System.out.println("""
                 Введите данные тура и путешественника.
                 Название, дата начала, количество дней, ФИО, номер паспорта
                 Например: Бали, 23.11.2021, 10, Горохов Иван Дмитриевич, 8977090809""");
+
         String input2 = new Scanner(System.in).nextLine().trim();
         if (input2.equals("7")) return;
         while (!input2.matches("[А-я\\s]+, [\\d.]+, \\d+, [А-я\\s]+, \\d{10}")) {
@@ -50,10 +57,15 @@ public class ServiceFactory {
             if (input2.equals("7")) return;
         }
         String[] components2 = input2.split(",");
-        travelPackages.bayTour(components2[0].trim(), new Voucher(components2[1].trim(),
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+        LocalDate date = LocalDate.parse(components2[1].trim(), formatter);
+        travelPackages.bayTour(components2[0].trim(), new Voucher(date,
                 Integer.parseInt(components2[2].trim()),
                 components2[3].trim(),
                 components2[4].trim()));
+        }catch (DateTimeException dtEx){
+            System.out.println("Дата введена некорректно. Формат даты День1.Месяц.Год (4 цифры)");
+        }
     }
 
     private static void cancelTour() {
