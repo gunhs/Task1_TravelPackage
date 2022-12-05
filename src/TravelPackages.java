@@ -32,7 +32,6 @@ public class TravelPackages implements SaleOfVouchers {
         if (checkTour(name)) return;
         vouchers.get(name).addTraveler(voucher);
         vouchers.get(name).setCount(vouchers.get(name).getCount() - 1);
-        System.out.println("Покупка \"" + name + "\" прошла успешно");
     }
 
     @Override
