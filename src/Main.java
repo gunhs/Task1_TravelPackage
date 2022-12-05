@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-
         System.out.println("Программа для управления путешествиями");
         while (true) {
             System.out.println("""
@@ -18,14 +16,12 @@ public class Main {
                     6. Показать все туры с количеством путёвок
                     7. Возврат в главное меню
                     0. Выход из программы""");
-            
             try {
                 int a = new Scanner(System.in).nextInt();
                 if (a == 0) {
                     break;
                 }
                 ServiceFactory.processing(a);
-                
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
             }

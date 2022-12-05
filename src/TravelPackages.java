@@ -6,7 +6,7 @@ public class TravelPackages implements SaleOfVouchers {
 
     @Override
     public void addTour(String name, Tour tour) {
-        if (vouchers.containsKey(name)){
+        if (vouchers.containsKey(name)) {
             System.out.println("Такой тур уже существует. Введите другое название");
             return;
         }
@@ -30,10 +30,17 @@ public class TravelPackages implements SaleOfVouchers {
     @Override
     public void bayTour(String name, Voucher voucher) {
         if (checkTour(name)) return;
+        for (Voucher v : vouchers.get(name).getVouchers()) {
+            if (v.getNameOfTheTraveler().equals(voucher.getNameOfTheTraveler())
+            && v.getPassportNumber().equals(voucher.getPassportNumber())) {
+                System.out.println("Данный путешественник уже покупал тур");
+                return;
+            } else {
+                System.out.println("Путешественник с таким именем не покупал данный тур." +
+                        " Проверьте правильность вводимых данных");
+            }
+        }
         vouchers.get(name).addTraveler(voucher);
-//        System.out.println("Количчество путёвок до покупки" + vouchers.get(name).getCount());
-//        vouchers.get(name).setCount(vouchers.get(name).getCount() - 1);
-//        System.out.println("Количество путёвок после покупки" + vouchers.get(name).getCount());
     }
 
     @Override
@@ -47,7 +54,6 @@ public class TravelPackages implements SaleOfVouchers {
                         " Проверьте правильность вводимых данных");
             }
         }
-//        vouchers.get(name).setCount(vouchers.get(name).getCount() + 1);
         System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
     }
 
@@ -55,7 +61,7 @@ public class TravelPackages implements SaleOfVouchers {
     public void getInformation(String name) {
         if (checkTour(name)) return;
         System.out.println("Количество мест в туре " + name +
-                ": " + (vouchers.get(name).getCount()-vouchers.get(name).getVouchers().size()));
+                ": " + (vouchers.get(name).getCount() - vouchers.get(name).getVouchers().size()));
     }
 
     public void getTours() {
