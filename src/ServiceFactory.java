@@ -16,8 +16,10 @@ public class ServiceFactory {
     }
 
     private static void addTour() {
-        System.out.println("Введите данные о туре через запятую.\n" +
-                "Например: Бали, 150000, 5");
+        System.out.println("""
+                Введите данные о туре через запятую.
+                Название, стоимость, количество путевок
+                Например: Бали, 150000, 5""");
         String input = new Scanner(System.in).nextLine().trim();
         if (input.equals("7")) return;
         while (!input.matches("[А-я\\s]+, \\d+, \\d+")) {
@@ -36,7 +38,7 @@ public class ServiceFactory {
     private static void bayTour() {
         System.out.println("""
                 Введите данные тура и путешественника.
-                Название, дата начала, количество дней, ФИО, номер паспорта.
+                Название, дата начала, количество дней, ФИО, номер паспорта
                 Например: Бали, 23.11.2021, 10, Горохов Иван Дмитриевич, 8977090809""");
         String input2 = new Scanner(System.in).nextLine().trim();
         if (input2.equals("7")) return;

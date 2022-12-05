@@ -21,9 +21,9 @@ public class Voucher {
 
     @Override
     public String toString() {
-        return "Имя путешественника: " + nameOfTheTraveler +
-                ", номер паспорта: " + passportNumber +
-                ", дата начала путешествия: " + date +
-                ", количество дней: " + dayCount;
+        return "\nФИО путешественника: " + nameOfTheTraveler + "\n" +
+                "Номер паспорта: " + passportNumber + "\n" +
+                "Дата начала путешествия: " + date + "\n" +
+                "Количество дней: " + dayCount;
     }
 }

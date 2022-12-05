@@ -7,7 +7,7 @@ public class TravelPackages implements SaleOfVouchers {
     @Override
     public void addTour(String name, Tour tour) {
         if (vouchers.containsKey(name)) {
-            System.out.println("Такой тур уже существует. Введите другое название");
+            System.out.println("Такой тур уже существует. Введите другое название.");
             return;
         }
         vouchers.put(name, tour);
@@ -36,7 +36,7 @@ public class TravelPackages implements SaleOfVouchers {
                 System.out.println("Данный путешественник уже покупал тур");
                 return;
             } else {
-                System.out.println("Путешественник с таким именем не покупал данный тур." +
+                System.out.println("Путешественник ФИО не покупал данный тур." +
                         " Проверьте правильность вводимых данных");
             }
         }
@@ -54,7 +54,7 @@ public class TravelPackages implements SaleOfVouchers {
                         " Проверьте правильность вводимых данных");
             }
         }
-        System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
+        System.out.println("Отмена покупки \"" + name + "\" прошла успешно.");
     }
 
     @Override
@@ -66,7 +66,7 @@ public class TravelPackages implements SaleOfVouchers {
 
     public void getTours() {
         if (vouchers.isEmpty()) {
-            System.out.println("Нет доступных туров");
+            System.out.println("Нет доступных туров.");
             return;
         }
         for (Map.Entry<String, Tour> entry : vouchers.entrySet()) {
