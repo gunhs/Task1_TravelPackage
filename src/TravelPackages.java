@@ -6,8 +6,9 @@ public class TravelPackages implements SaleOfVouchers {
 
     @Override
     public void addTour(String name, Tour tour) {
+
         if (vouchers.containsKey(name)) {
-            System.out.println("Такой тур уже существует. Введите другое название");
+            System.out.println("Тур с таким именем существует. Создайте другой тур");
             return;
         }
         vouchers.put(name, tour);
@@ -15,53 +16,55 @@ public class TravelPackages implements SaleOfVouchers {
     }
 
     @Override
-    public void getVoucher(String name) {
+    public void getTour(String name) {
         if (checkTour(name)) return;
-        if (vouchers.get(name).getVouchers().isEmpty()) {
-            System.out.println("Нет активных путёвок по данному туру");
-            return;
-        }
-        System.out.println("Список путёвок по туру " + name + ":");
-        for (Voucher v : vouchers.get(name).getVouchers()) {
-            System.out.println(v);
+        if (vouchers.get(name).getTravelers().isEmpty()) {
+            System.out.println(vouchers.get(name) + "\nНет активных путёвок по данному туру");
+        } else {
+            System.out.println(vouchers.get(name));
+            System.out.println("Список туристов купивыших тур:");
+            for (Traveler v : vouchers.get(name).getTravelers()) {
+                System.out.println(v);
+            }
         }
     }
 
     @Override
-    public void bayTour(String name, Voucher voucher) {
+    public void bayTour(String name, Traveler traveler) {
         if (checkTour(name)) return;
-        for (Voucher v : vouchers.get(name).getVouchers()) {
-            if (v.getNameOfTheTraveler().equals(voucher.getNameOfTheTraveler())
-            && v.getPassportNumber().equals(voucher.getPassportNumber())) {
+        for (Traveler v : vouchers.get(name).getTravelers()) {
+            if (v.getNameOfTheTraveler().equals(traveler.getNameOfTheTraveler())
+                    && v.getPassportNumber().equals(traveler.getPassportNumber())) {
                 System.out.println("Данный путешественник уже покупал тур");
                 return;
-            } else {
-                System.out.println("Путешественник с таким именем не покупал данный тур." +
-                        " Проверьте правильность вводимых данных");
             }
         }
-        vouchers.get(name).addTraveler(voucher);
+        vouchers.get(name).addTraveler(traveler);
     }
 
     @Override
     public void cancelTour(String name, String nameOfTraveler) {
         if (checkTour(name)) return;
-        for (Voucher v : vouchers.get(name).getVouchers()) {
+        if (vouchers.get(name).getTravelers().isEmpty()){
+            System.out.println("В туре отсутвуют путёвки");
+            return;
+        }
+        for (Traveler v : vouchers.get(name).getTravelers()) {
             if (v.getNameOfTheTraveler().equals(nameOfTraveler)) {
                 vouchers.get(name).removeTraveler(v);
+                System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
             } else {
                 System.out.println("Путешественник с таким именем не покупал данный тур." +
                         " Проверьте правильность вводимых данных");
             }
         }
-        System.out.println("Отмена покупки \"" + name + "\" прошла успешно");
     }
 
     @Override
     public void getInformation(String name) {
         if (checkTour(name)) return;
         System.out.println("Количество мест в туре " + name +
-                ": " + (vouchers.get(name).getCount() - vouchers.get(name).getVouchers().size()));
+                ": " + (vouchers.get(name).getCount() - vouchers.get(name).getTravelers().size()));
     }
 
     public void getTours() {
