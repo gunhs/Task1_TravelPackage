@@ -1,10 +1,12 @@
+import java.time.LocalDate;
+
 public class Voucher {
     private final String nameOfTheTraveler;
-    private final String date;
+    private final LocalDate date;
     private final int dayCount;
     private final String passportNumber;
 
-    public Voucher(String date, int dayCount, String nameOfTheTraveler, String passportNumber) {
+    public Voucher(LocalDate date, int dayCount, String nameOfTheTraveler, String passportNumber) {
         this.nameOfTheTraveler = nameOfTheTraveler;
         this.date = date;
         this.dayCount = dayCount;
@@ -21,9 +23,9 @@ public class Voucher {
 
     @Override
     public String toString() {
-        return "Имя путешественника: " + nameOfTheTraveler +
-                ", номер паспорта: " + passportNumber +
-                ", дата начала путешествия: " + date +
-                ", количество дней: " + dayCount;
+        return "\nФИО путешественника: " + nameOfTheTraveler + "\n" +
+                "Номер паспорта: " + passportNumber + "\n" +
+                "Дата начала путешествия: " + date + "\n" +
+                "Количество дней: " + dayCount;
     }
 }
