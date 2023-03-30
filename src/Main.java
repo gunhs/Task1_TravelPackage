@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        
+
         System.out.println("Программа для управления путешествиями");
         while (true) {
             System.out.println("""
@@ -15,21 +15,16 @@ public class Main {
                     4. Показать информацию о путёвках по туру
                     5. Показать количество оставшихся путёвок по туру
                     6. Показать все туры с количеством путёвок
-                    0. Выход из команды""");
-            
+                    0. Выход из прогрмамы""");
             try {
-                //int a = getS();
-                if (getS() == 0) {
-                    ServiceFactory.processing();
+                int command = new Scanner(System.in).nextInt();
+                ServiceFactory.processing(command);
+                if (command == 0) {
+                    break;
                 }
-                
             } catch (InputMismatchException exception) {
                 System.out.println("Ошибка ввода. Введите команду от 1 до 6");
             }
         }
-    }
-    public static int getS() {
-        
-        return new Scanner(System.in).nextInt();
     }
 }

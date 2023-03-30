@@ -1,7 +1,7 @@
 public interface SaleOfVouchers {
-    void addTour(String name, Tour tour);
-    void getVoucher(String name);
-    void bayTour(String name, Voucher voucher);
-    void cancelTour(String name, String nameOfTraveler);
-    void getInformation(String name);
+    String addTour(String name, Tour tour);
+    String getVoucher(String name);
+    String bayTour(String name, Voucher voucher);
+    String cancelTour(String name, String nameOfTraveler);
+    String getInformation(String name);
 }
