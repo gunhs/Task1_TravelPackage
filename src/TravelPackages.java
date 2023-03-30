@@ -22,9 +22,9 @@ public class TravelPackages implements SaleOfVouchers {
         }
         StringBuilder listOfVouchers = new StringBuilder("Список путёвок по туру " + name + ":");
         for (Voucher v : vouchers.get(name).getVouchers().get(name)){
-            listOfVouchers.append(v);
+            listOfVouchers.append(v).append("\n");
         }
-        return listOfVouchers.toString();
+        return listOfVouchers.toString().strip();
     }
 
     @Override
